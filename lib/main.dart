@@ -18,13 +18,15 @@ const _Credential = r'''
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/flutter-gss-test%40flutter-test-gss.iam.gserviceaccount.com"
 }
 ''';
-//spreedsheet id
+//spreadsheet id
 const _spreedSheetId = '1Z3krxPZNcEF7FMAP_iSlN_XKIdHwZZ0gghgFonZfFFc/';
 void main() async {
   //inital gsheet
   final gsheets = GSheets(_Credential);
-  //fetch sprred shit by id
+  //fetch spread shit by id
   final ss = await gsheets.spreadsheet(_spreedSheetId);
+  //get work sheet by tittle
+  var sheet = ss.worksheetByTitle('worksheet1');
 
   runApp(MyApp());
 }
