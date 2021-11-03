@@ -27,7 +27,8 @@ void main() async {
   final ss = await gsheets.spreadsheet(_spreedSheetId);
   //get work sheet by tittle
   var sheet = ss.worksheetByTitle('worksheet1');
-
+  //update a cell
+  await sheet!.values.insertValue('test', column: 1, row: 1);
   runApp(MyApp());
 }
 
