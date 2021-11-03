@@ -1,9 +1,10 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:gsheets/gsheets.dart';
 
 //create credential
-const Credential = r'''
+const _Credential = r'''
 {
   "type": "service_account",
   "project_id": "flutter-test-gss",
@@ -19,7 +20,12 @@ const Credential = r'''
 ''';
 //spreedsheet id
 const _spreedSheetId = '1Z3krxPZNcEF7FMAP_iSlN_XKIdHwZZ0gghgFonZfFFc/';
-void main() {
+void main() async {
+  //inital gsheet
+  final gsheets = GSheets(_Credential);
+  //fetch sprred shit by id
+  final ss = await gsheets.spreadsheet(_spreedSheetId);
+
   runApp(MyApp());
 }
 
